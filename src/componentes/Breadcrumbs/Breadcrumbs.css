@@ -1,0 +1,32 @@
+.breadcrumb {
+    list-style: none;
+    padding: 10px 70px; /* Ajusta el padding para que coincida con el header */
+    background-color: #f4f4f4; /* Color de fondo */
+}
+
+.breadcrumb ol {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb li {
+    margin-right: 10px;
+}
+
+.breadcrumb li::after {
+    content: ">";
+    margin-left: 10px;
+}
+
+.breadcrumb li:last-child::after {
+    content: ""; /* Elimina el símbolo en el último elemento */
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #007bff; /* Color del enlace */
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline; /* Subrayado en hover */
+}
