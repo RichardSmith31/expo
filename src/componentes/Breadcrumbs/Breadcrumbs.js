@@ -1,7 +1,7 @@
 // Breadcrumbs.js
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './Breadcrumbs.css';
+import './Breadcrumbs.css'; // 
 
 const Breadcrumbs = () => {
     const location = useLocation();
@@ -12,10 +12,14 @@ const Breadcrumbs = () => {
             <ol>
                 <li><Link to="/">Inicio</Link></li>
                 {pathnames.map((pathname, index) => {
-                    const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`; // Corrección aquí
+                    const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
+                    const isActive = routeTo === location.pathname; // Verifica si es la ruta actual
+
                     return (
                         <li key={routeTo}>
-                            <Link to={routeTo}>{pathname.charAt(0).toUpperCase() + pathname.slice(1)}</Link>
+                            <Link to={routeTo} className={isActive ? 'active' : ''}>
+                                {pathname.charAt(0).toUpperCase() + pathname.slice(1)}
+                            </Link>
                         </li>
                     );
                 })}
