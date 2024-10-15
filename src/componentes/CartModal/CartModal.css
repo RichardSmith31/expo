@@ -1,33 +1,28 @@
 .modal {
     position: fixed;
-    width: 400px;
+    width: 90%; /* Hacer el modal más responsivo */
+    max-width: 400px; /* Mantener un tamaño máximo */
     min-height: 150px;
     max-height: 90vh;
     background-color: #fff;
     top: -100%;
     right: 0;
-    z-index: -1;
+    z-index: 1000; /* Asegúrate de que sea positivo */
     border-left: #000 1px solid;
     border-bottom: #000 1px solid;
-    box-shadow: #00000007 10px 15px 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     border-bottom-left-radius: 15px;
     transition: top 0.3s ease-in-out;
 }
 
 .modal.show {
-    z-index: 999;
     top: 90px;
     opacity: 1;
     pointer-events: auto;
 }
 
-.modal.close-animation {
-    top: -100%;
-}
-
 .modal__content {
-    position: relative;
-    margin-top: 20px;
+    padding: 20px; /* Añadir padding interno */
     display: flex;
     flex-direction: column;
     align-items: center;

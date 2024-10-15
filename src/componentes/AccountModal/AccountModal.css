@@ -6,7 +6,7 @@
     background-color: #fff;
     top: -100%; /* Inicialmente fuera de la pantalla */
     right: 0;
-    z-index: -1;
+    z-index: 10;
     border-left: #000 1px solid;
     border-bottom: #000 1px solid;
     box-shadow: #00000007 10px 15px 15px;
@@ -15,7 +15,7 @@
 }
 
 .account-modal.show {
-    z-index: -1;
+    z-index: 10;
     top: 90px; 
     opacity: 1;
     pointer-events: auto;
@@ -27,7 +27,7 @@
 
 .account-modal__content {
     position: relative;
-    z-index: -1;
+    z-index: 10;
     margin-top: 40px;
     display: flex;
     flex-direction: column;
