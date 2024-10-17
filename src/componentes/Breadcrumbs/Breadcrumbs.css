@@ -29,9 +29,8 @@
     color: black; /* Color del enlace */
 }
 
-.breadcrumb a:hover {
-    text-decoration: underline; /* Subrayado en hover */
-}
+  /* Subrayado en hover */
+
 
 .breadcrumb a.active {
     color: #007bff; /* Color del enlace activo */
