@@ -3,6 +3,8 @@ import './AboutUs.css';
 import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
 import ValuesCarrusel from "../../componentes/ValuesCarrousel/ValuesCarrousel";
+import Breadcrumbs from "../../componentes/Breadcrumbs/Breadcrumbs";
+
 
 const AboutUs = () => {
     return (
@@ -15,6 +17,8 @@ const AboutUs = () => {
             </div>
         </div>
 
+        <Breadcrumbs/>
+        
       <div className="about__container">
         <h1 className="about-title">¿Quienes somos?</h1>
         <p className="about-content-one">ENTQUIM es una destacada empresa nacional con un equipo de socios y un capital 100% colombiano. Nos especializamos en la fabricación y comercialización a nivel nacional de pesticidas químicos diseñados para el control eficaz de una amplia gama de plagas que pueden comprometer la calidad de vida de las personas.</p>

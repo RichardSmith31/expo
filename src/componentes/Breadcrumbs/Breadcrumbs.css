@@ -1,6 +1,6 @@
 .breadcrumb {
     padding: 10px 70px;
-    background-color: #f4f4f4;
+    background-color: transparent;
 }
 
 .breadcrumb ol {
@@ -28,8 +28,6 @@
     text-decoration: none;
     color: black; /* Color del enlace */
 }
-
-  /* Subrayado en hover */
 
 
 .breadcrumb a.active {

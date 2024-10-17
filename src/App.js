@@ -20,6 +20,8 @@ import { AuthProvider } from './context/AuthContext/AuthContext';
 import { ToastContainer } from 'react-toastify';  // Importar ToastContainer
 import 'react-toastify/dist/ReactToastify.css';
 import ScrollToTop from './componentes/ScrollToTop/ScrollToTop' // Importar el nuevo componente
+import Cart from './pagina/Cart/Cart';
+
 
 function App() {
   return (
@@ -58,6 +60,12 @@ function App() {
               <Route path="/" exact element={
                 <>
                   <Index/>
+                </>
+              } />
+
+              <Route path="/Cart" exact element={
+                <>
+                  <Cart/>
                 </>
               } />
 

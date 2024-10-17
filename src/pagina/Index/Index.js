@@ -54,6 +54,7 @@ const Index = () => {
             <Header />
             <IndexCarrousel />
             <div className="lol"></div>
+
             <MarketCompes />
 
             <div className="featured-product">

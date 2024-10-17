@@ -8,6 +8,7 @@ import todos from '../../assets/categories/todos.png';
 import otros from '../../assets/categories/otros.png';
 import { Link } from 'react-router-dom';
 import { useCart } from '../../context/CartContext/CartContext'; // Importa useCart
+import Breadcrumbs from "../../componentes/Breadcrumbs/Breadcrumbs";
 
 const Productos = () => {
     const [productos, setProductos] = useState([]);
@@ -57,6 +58,8 @@ const Productos = () => {
                     <h3 className="product-image-subtitle">Calidad y seguridad en cada producto.</h3>
                 </div>
             </div>
+
+            <Breadcrumbs/>
 
             <div className='product-main__container'>
                 <div className='category-main__container'>

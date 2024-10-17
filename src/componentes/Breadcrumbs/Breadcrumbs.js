@@ -13,7 +13,7 @@ const Breadcrumbs = () => {
                 <li><Link to="/">Inicio</Link></li>
                 {pathnames.map((pathname, index) => {
                     const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
-                    const isActive = routeTo === location.pathname; // Verifica si es la ruta actual
+                    const isActive = routeTo === location.pathname; 
 
                     return (
                         <li key={routeTo}>

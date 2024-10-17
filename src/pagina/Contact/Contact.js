@@ -3,6 +3,7 @@ import './Contact.css';
 import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
 import apiContact from "../../services/ApiContact"; 
+import Breadcrumbs from "../../componentes/Breadcrumbs/Breadcrumbs";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -135,6 +136,8 @@ const Contact = () => {
           <h3 className="contact-image-subtitle">Atenderemos sus dudas con gusto.</h3>
         </div>
       </div>
+
+      <Breadcrumbs/>
 
       <div className="contact-main__container">
         <form className="contact-form__container" onSubmit={handleSubmit}>

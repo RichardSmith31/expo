@@ -6,7 +6,7 @@ import cart from '../../assets/icons/cart.png';
 import account from '../../assets/icons/account.png';
 import CartModal from '../CartModal/CartModal';
 import AccountModal from '../AccountModal/AccountModal';
-import Breadcrumbs from '../Breadcrumbs/Breadcrumbs'; // Asegúrate de que la ruta sea correcta
+
 
 const Header = () => {
     const [isCartModalOpen, setIsCartModalOpen] = useState(false);
@@ -90,8 +90,6 @@ const Header = () => {
                 </div>
             </header>
 
-            {/* Integrar el componente de Breadcrumbs */}
-            <Breadcrumbs />
 
             <CartModal isOpen={isCartModalOpen} onClose={toggleCartModal} />
             <AccountModal isOpen={isAccountModalOpen} onClose={toggleAccountModal} />
