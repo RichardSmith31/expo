@@ -90,6 +90,7 @@
 .cart, .account {
     font-size: 2rem;
     cursor: pointer;
+    color: #000;
 }
 
 
