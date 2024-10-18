@@ -6,7 +6,7 @@ import cart from '../../assets/icons/cart.png';
 import account from '../../assets/icons/account.png';
 import CartModal from '../CartModal/CartModal';
 import AccountModal from '../AccountModal/AccountModal';
-
+import { RiShoppingCart2Line, RiUserLine} from "react-icons/ri";
 
 const Header = () => {
     const [isCartModalOpen, setIsCartModalOpen] = useState(false);
@@ -79,10 +79,10 @@ const Header = () => {
                         <div className={`icons-header__container ${isHeaderExpanded ? 'expanded' : ''}`}>
                             <ul className="header__list">
                                 <li className="header__element">
-                                    <img src={cart} alt="Carrito" className="cart" onClick={toggleCartModal} />
+                                    <Link className='account' to={"/Cart"}><RiShoppingCart2Line /></Link>
                                 </li>
                                 <li className="header__element">
-                                    <img src={account} alt='Cuenta' className='account' onClick={toggleAccountModal} />
+                                   <RiUserLine className='account' onClick={toggleAccountModal} />
                                 </li>
                             </ul>
                         </div>
