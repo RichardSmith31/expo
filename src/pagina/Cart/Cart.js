@@ -11,6 +11,7 @@ const Cart = () => {
 
   const [productos, setProductos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [showPaymentOptions, setShowPaymentOptions] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:3001/productos')
@@ -30,10 +31,14 @@ const Cart = () => {
     0
   );
 
+  const handleCheckout = () => {
+    setShowPaymentOptions(true);
+  };
+
   return (
     <div>
       <Header />
-      <Breadcrumbs></Breadcrumbs>
+      <Breadcrumbs />
       <div className="cart-container">
         <h2>Tu Carrito</h2>
         {isLoading ? (
@@ -51,8 +56,6 @@ const Cart = () => {
               {cartItems.map((item) => (
                 <div key={item.id} className="cart-item">
                   <div className="cart-item-info">
-                    {/* Puedes usar la imagen del producto desde 'productos' si lo deseas */}
-                    {/* <img src={item.image} alt={item.nombre} className="cart-item-img" /> */}
                     <div>
                       <h3>{item.nombre}</h3>
                       <p className="item-price">${item.precio}</p>
@@ -70,14 +73,13 @@ const Cart = () => {
                           type="number"
                           min="1"
                           value={item.quantity}
-                          onChange={(e) =>
-                            updateCartItemQuantity(
-                              item.id,
-                              parseInt(e.target.value, 10)
-                            )
-                          }
+                          readOnly
                         />
-                        <button onClick={() => updateCartItemQuantity(item.id, item.quantity + 1)}>
+                        <button 
+                          onClick={() => 
+                            updateCartItemQuantity(item.id, item.quantity + 1)
+                          }
+                        >
                           +
                         </button>
                         <button
@@ -100,11 +102,26 @@ const Cart = () => {
               <p>Subtotal: ${subtotal.toFixed(2)}</p>
               <p>Envío: Gratis</p>
               <h3>Total: ${subtotal.toFixed(2)}</h3>
-              <button className="checkout-btn">Proceder a pagar</button>
+              <button className="checkout-btn" onClick={handleCheckout}>
+                Proceder a pagar
+              </button>
               <button className="clear-btn" onClick={clearCart}>
                 Vaciar Carrito
               </button>
             </div>
+            {showPaymentOptions && (
+              <div className="payment-options">
+                <h4>Elegir método de pago</h4>
+                <label>
+                  <input type="radio" name="paymentMethod" value="creditCard" /> 
+                  Tarjeta de crédito
+                </label>
+                <label>
+                  <input type="radio" name="paymentMethod" value="cashOnDelivery" />
+                  Contraentrega
+                </label>
+              </div>
+            )}
           </>
         )}
       </div>

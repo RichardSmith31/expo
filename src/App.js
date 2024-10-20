@@ -22,7 +22,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import ScrollToTop from './componentes/ScrollToTop/ScrollToTop' // Importar el nuevo componente
 import Cart from './pagina/Cart/Cart';
 
-
 function App() {
   return (
     <AuthProvider>

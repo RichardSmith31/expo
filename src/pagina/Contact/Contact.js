@@ -226,7 +226,7 @@ const Contact = () => {
               placeholder="Escriba su mensaje"
               value={formData.mensaje}
               onChange={handleChange}
-              className="contact-input"
+              className="contact-input contact-textarea" // Agregada la nueva clase
             />
             {errors.mensaje && <p className="error-message">{errors.mensaje}</p>}
           </div>
@@ -239,7 +239,7 @@ const Contact = () => {
         </form>
       </div>
       <div>
-      <Footer/>
+        <Footer/>
       </div>
     </>
   );
