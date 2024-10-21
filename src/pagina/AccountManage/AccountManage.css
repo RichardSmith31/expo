@@ -1,57 +1,72 @@
 .account-manage__container {
   display: flex;
+  flex-direction: column;
   height: 100vh;
-  background-color: #f5f6fa; /* Fondo claro */
+  background-color: #f9f9f9; /* Color de fondo claro */
 }
 
-/* Sidebar */
-.sidebar {
-  width: 250px;
-  background-color: #fff; /* Fondo blanco */
+.account-manage-title__container {
   padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra para la sidebar */
+  background-color: #14A2C9; /* Color de fondo del título */
+  color: white;
+  text-align: center;
 }
 
-/* Contenedor Central */
-.central-container {
-  flex-grow: 1; /* Esto permitirá que ocupe el espacio restante */
-  display: flex;
-  justify-content: center; /* Centrar contenido horizontalmente */
-  align-items: center; /* Centrar contenido verticalmente */
+.account-title {
+  font-size: 24px;
+  font-weight: bold;
 }
 
-/* Contenido principal */
 .main-content {
-  background-color: #ffffff; /* Fondo blanco para el contenido */
-  border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para el contenido */
+  flex: 1;
   padding: 20px;
-  width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
-  max-width: 800px; /* Limitar el ancho máximo del contenedor */
-  text-align: center; /* Centrar el texto */
-  height: 100%; /* Asegura que ocupe toda la altura del contenedor */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido horizontalmente */
 }
 
-/* Media queries para responsividad */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 200px; /* Ancho ajustado para pantallas más pequeñas */
-  }
-  .main-content {
-    padding: 10px; /* Relleno ajustado para pantallas más pequeñas */
-  }
+.password-verification {
+  background-color: #fff; /* Fondo blanco para el formulario */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px 0; /* Espaciado alrededor del formulario */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  width: 300px; /* Ancho fijo para el formulario */
+  text-align: center; /* Centra el texto dentro del formulario */
 }
-.logout-button {
-  background-color: red; /* Color de fondo rojo */
-  color: white; /* Color del texto */
-  border: none; /* Sin borde */
+
+.password-verification input {
+  width: 100%; /* Campo de entrada ocupa todo el ancho del formulario */
+  padding: 10px;
+  margin: 10px 0; /* Espaciado vertical */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 5px;
+}
+
+.password-verification button {
+  background-color: #14A2C9; /* Color de fondo del botón */
+  color: white; /* Texto blanco */
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.password-verification button:hover {
+  background-color: #0d7a9a; /* Color del botón al pasar el mouse */
+}
+
+.error-message {
+  color: red; /* Color rojo para el mensaje de error */
+  margin-top: 10px; /* Espaciado superior */
+}
+
+.editable-data {
+  width: 100%; /* Ancho completo para los datos editables */
+  max-width: 600px; /* Ancho máximo para evitar que sea demasiado ancho */
+  padding: 20px;
+  background-color: #fff; /* Fondo blanco */
   border-radius: 5px; /* Bordes redondeados */
-  padding: 10px 15px; /* Relleno */
-  cursor: pointer; /* Cambiar cursor al pasar el ratón */
-  font-size: 16px; /* Tamaño de la fuente */
-  transition: background-color 0.3s; /* Transición suave para el color de fondo */
-}
-
-.logout-button:hover {
-  background-color: darkred; /* Color al pasar el ratón */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
