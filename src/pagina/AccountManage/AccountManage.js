@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './AccountManage.css';
 import AccountDetails from '../../componentes/AccountDetails/AccountDetails';
-import { useAuth } from '../../context/AuthContext/AuthContext'; 
-import { useNavigate } from 'react-router-dom';
+import OrderHistory from '../../componentes/OrderHistory/OrderHistory';
 import HeaderManagement from '../../componentes/HeaderManagement/HeaderManagement';
 import SideBarNavigation from '../../componentes/SideBarNavigation/SideBarNavigation';
-import axios from 'axios'; // Importar axios para las llamadas API
+import { useAuth } from '../../context/AuthContext/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const AccountManage = () => {
-  const { user, loading, handleLogout } = useAuth(); 
+  const { user, loading, logout } = useAuth();
   const navigate = useNavigate();
+  const [notification, setNotification] = useState('');
   const [activeSection, setActiveSection] = useState('Inicio');
-  const [isPasswordVerified, setIsPasswordVerified] = useState(false);
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
 
   useEffect(() => {
     if (!loading && !user) {
@@ -29,26 +27,9 @@ const AccountManage = () => {
     return null;
   }
 
-  const handlePasswordVerification = async () => {
-    try {
-      // Llamada a tu API para verificar la contraseña
-      const response = await axios.post('http://localhost:3001/usuarios', {
-        userId: user.id, // Suponiendo que tienes un id del usuario
-        password: password
-      });
-
-      if (response.data.success) {
-        // Si la contraseña es correcta
-        setIsPasswordVerified(true);
-        setError('');
-      } else {
-        // Si la contraseña es incorrecta
-        setError('Contraseña incorrecta. Inténtalo de nuevo.');
-      }
-    } catch (error) {
-      console.error("Error al verificar la contraseña:", error);
-      setError('Hubo un problema al verificar tu contraseña.');
-    }
+  const handleSaveChanges = (e) => {
+    e.preventDefault();
+    setNotification('¡Cambios guardados con éxito!');
   };
 
   const renderContent = () => {
@@ -57,32 +38,21 @@ const AccountManage = () => {
         return (
           <div>
             <h2>Bienvenido, {user?.name}</h2>
-            {!isPasswordVerified ? (
-              <div className="password-verification">
-                <p>Para editar tus datos, verifica tu contraseña:</p>
-                <input
-                  type="password"
-                  placeholder="Ingresa tu contraseña"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <button onClick={handlePasswordVerification}>Verificar</button>
-                {error && <p className="error-message">{error}</p>}
-              </div>
-            ) : (
-              <div className="editable-data">
-                <h3>Edita tus datos personales:</h3>
-                {/* Aquí puedes incluir un formulario con campos editables para los datos personales */}
-                <AccountDetails />
-              </div>
-            )}
+            {notification && <div className="notification">{notification}</div>}
+            <AccountDetails />
+          </div>
+        );
+      case 'Reportes':
+        return (
+          <div>
+            <OrderHistory />
           </div>
         );
       case 'Configuración':
         return (
           <div>
             <h2>Configuración</h2>
-            <button className="logout-button" onClick={handleLogout}>Cerrar sesión</button>
+            <button onClick={logout} className="logout-button">Cerrar Sesión</button>
           </div>
         );
       default:
@@ -93,7 +63,9 @@ const AccountManage = () => {
   return (
     <div className='account-manage__container'>
       <HeaderManagement />
-      <SideBarNavigation setActiveSection={setActiveSection} />
+      <div className='side-bar'>
+        <SideBarNavigation setActiveSection={setActiveSection} />
+      </div>
       <div className='main-content'>
         {renderContent()}
       </div>
