@@ -111,11 +111,24 @@ h2 {
   background-color: #d32f2f;
 }
 
+/* Estilos del carrito vacío */
 .empty-cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   font-size: 18px;
   color: #777;
   margin-top: 20px;
+}
+
+.empty-cart p {
+  margin-bottom: 15px; /* Agrega espacio entre el mensaje y el botón */
+}
+
+.empty-cart .shop-btn {
+  margin-top: 10px; /* Asegura que haya un margen entre el botón y el texto */
 }
 
 .payment-options {
